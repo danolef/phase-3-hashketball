@@ -1,4 +1,7 @@
 # Write your code below game_hash
+
+require "pry"
+
 def game_hash
   {
     home: {
@@ -126,4 +129,20 @@ def game_hash
   }
 end
 
-# Write code here
+def num_points_scored(players_name)
+  game_hash.each do |location, team_data|
+    team_data.each do |attribute, data|
+      if attribute == :players
+       data.filter do |player_info|
+       if player_info[:player_name] == players_name
+        puts "points: #{player_info[:points]}"
+        end
+       end 
+      end
+    end
+  end
+end
+
+# binding.pry
+# 0
+# num_points_scored("Kemba Walker")
